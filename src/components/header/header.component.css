@@ -1,10 +1,19 @@
 .header {
-    background-color: #0280b3;
+    background-color: #29C8DB;
     padding: 15px 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: white;
     width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    a {
+        margin-right: 30px;
+        text-decoration: none;
+        color: black;
+    }
 }

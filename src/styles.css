@@ -19,16 +19,45 @@ p {
 }
 
 /** Cores */
-/* principal: #0280b3 
-   destaque: #02d6d6
-   alerta: #c40202 */
+/* principal: #29c8db
+   secundária: #2081c6 (azul) (versão mais clara: #2e9ceb)
+   terciária: #2adbb2 (verde)
+
+   editar: #f9ba28
+   deletar: #fa2c2c */
 
 
-/** Componentes */
+/** Botões */
 .button {
-  background-color: #02d6d6;
-  border: 1px solid black;
+  background-color: #2e9ceb;
+  border: none;
   border-radius: 10px;
-  padding: 15px;
-  margin: 15px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.yellow {
+  background-color: #f9ba28;
+}
+
+.red {
+  background-color: #fa2c2c;
+}
+
+.green {
+  background-color: #2adb88;
+}
+
+.button:hover {
+  opacity: .75;
+  transition: .3s;
+}
+
+.button:not(:hover) {
+  opacity: 1;
+  transition: .3s;
 }

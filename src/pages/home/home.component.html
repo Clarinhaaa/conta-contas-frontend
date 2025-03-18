@@ -1,11 +1,28 @@
 <div class="main-container">
-  <h2>Suas contas:</h2>
+  <h1>Suas contas:</h1>
   <div class="conta-container">
     <div class="conta">
-      <span><h3>Conta 1</h3></span>
-      <p>Descrição: lorem ipsum</p>
+      <h3 class="conta-titulo">Descrição</h3>
       <p>Valor: 300</p>
       <p>Data de vencimento: 18/03/2025</p>
+      <p>Status: a pagar</p>
+      <p>Parcelas: 3</p>
+      <a routerLink="/detalhesConta">Detalhes...</a>
+
+      <div class="button-container">
+        <a class="button" routerLink="#">
+          <p>Parcelar</p>
+        </a>
+        <button class="button green">
+          <p>Pagar</p>
+        </button>
+        <a class="button yellow" routerLink="/editarConta">
+          <p>Editar</p>
+        </a>
+        <button class="button red">
+          <p>Excluir</p>
+        </button>
+      </div>
     </div>
   </div>
 </div>
