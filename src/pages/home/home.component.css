@@ -1,0 +1,45 @@
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.conta-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.conta {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  /* margin: 0 10px;
+  margin-bottom: 30px; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.conta:hover {
+  box-shadow: 5px 5px 10px #bbb;
+  transition: 0.5s;
+}
+.conta:not(:hover) {
+  box-shadow: none;
+  transition: 0.5s;
+}
+
+span {
+  font-weight: bolder;
+  color: #0280b3;
+}
