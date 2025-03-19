@@ -1,0 +1,76 @@
+<form [formGroup]="contaForm" #formDir="ngForm">
+  <input type="hidden" formControlName="idConta" />
+  <input type="hidden" formControlName="idUsuario" />
+
+  <div class="form-container">
+    <div class="form-item">
+      <label for="descricaoConta">Descrição:</label>
+      <input
+        type="text"
+        placeholder="Para que serve esta conta?"
+        formControlName="descricaoConta"
+      />
+      <div
+        *ngIf="descricao.invalid && formDir.submitted"
+        class="erro-validacao"
+      >
+        <p>Insira uma descrição</p>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label for="valorConta">Valor da conta:</label>
+      <input
+        type="number"
+        placeholder="Ex.: 250,50"
+        formControlName="valorConta"
+      />
+      <div *ngIf="valor.invalid && formDir.submitted" class="erro-validacao">
+        <p>Insira o valor da conta</p>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label for="dataVencimentoConta">Data de vencimento:</label>
+      <input
+        type="date"
+        min="{{ dataAtual }}"
+        max="2050-12-31"
+        formControlName="dataVencimentoConta"
+      />
+      <div
+        *ngIf="dataVencimento.invalid && formDir.submitted"
+        class="erro-validacao"
+      >
+        <p>Insira a data de vencimento da conta</p>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label for="tipoConta">Tipo da conta:</label>
+      <input
+        type="text"
+        placeholder="A pagar ou a receber?"
+        formControlName="tipoConta"
+      />
+      <div *ngIf="tipo.invalid && formDir.submitted" class="erro-validacao">
+        <p>Insira o tipo da conta</p>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label for="idCategoria">Categoria:</label>
+      <select formControlName="idCategoria">
+        <option>Energia</option>
+        <option>Água</option>
+      </select>
+    </div>
+
+    <input
+      *ngIf="!visualizar"
+      type="submit"
+      class="button submit {{ tipoForm === 'cadastrar' ? 'green' : 'yellow' }}"
+      value="{{ tipoForm === 'cadastrar' ? 'Salvar' : 'Editar' }}"
+    />
+  </div>
+</form>
