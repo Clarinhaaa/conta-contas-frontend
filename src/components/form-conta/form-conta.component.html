@@ -1,4 +1,4 @@
-<form [formGroup]="contaForm" #formDir="ngForm">
+<form [formGroup]="contaForm" #formDir="ngForm" (ngSubmit)="submit()">
   <input type="hidden" formControlName="idConta" />
   <input type="hidden" formControlName="idUsuario" />
 

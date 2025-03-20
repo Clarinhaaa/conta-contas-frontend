@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContaInt } from 'src/interfaces/ContaInt';
 
 @Component({
   selector: 'app-form-conta',
@@ -9,9 +10,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FormContaComponent implements OnInit {
   @Input() tipoForm!: string;
   @Input() visualizar!: boolean;
+  @Output() onSubmit = new EventEmitter<ContaInt>();
 
   protected contaForm!: FormGroup;
   protected dataAtual: Date = new Date();
+
+  constructor() {}
 
   ngOnInit(): void {
     console.log(this.tipoForm);
@@ -39,5 +43,12 @@ export class FormContaComponent implements OnInit {
   }
   get tipo() {
     return this.contaForm.get('tipoConta')!;
+  }
+
+  submit() {
+    if (this.contaForm.invalid) return;
+
+    console.log(this.contaForm.value);
+    this.onSubmit.emit(this.contaForm.value);
   }
 }
