@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from 'src/pages/home/home.component';
@@ -11,6 +12,7 @@ import { FormContaComponent } from 'src/components/form-conta/form-conta.compone
 import { NovaContaComponent } from 'src/pages/nova-conta/nova-conta.component';
 import { EditarContaComponent } from 'src/pages/editar-conta/editar-conta.component';
 import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-conta.component';
+import { CadastroComponent } from 'src/pages/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,15 @@ import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-
     NovaContaComponent,
     EditarContaComponent,
     VisualizarContaComponent,
+    CadastroComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

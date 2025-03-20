@@ -17,7 +17,7 @@ export class ContaService {
   }
 
   getById(id: number): Observable<ContaInt> {
-    return this.http.get<ContaInt>(`${this.rota}/${id}`);
+    return this.http.get<ContaInt>(`${this.rota}${id}`);
   }
 
   getByUsuario(idUsu: number): Observable<ContaInt[]> {
@@ -29,10 +29,10 @@ export class ContaService {
   }
 
   update(conta: ContaInt, id: number): Observable<ContaInt> {
-    return this.http.put<ContaInt>(`${this.rota}/${id}`, conta);
+    return this.http.put<ContaInt>(`${this.rota}${id}`, conta);
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.rota}/${id}`);
+    return this.http.delete(`${this.rota}${id}`);
   }
 }

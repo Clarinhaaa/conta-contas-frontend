@@ -29,7 +29,7 @@ p {
 
 /** Botões */
 .button {
-  background-color: #2e9ceb;
+  background-color: #29c8db;
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -60,4 +60,17 @@ p {
 .button:not(:hover) {
   opacity: 1;
   transition: .3s;
+}
+
+
+/** Selecionar texto */
+
+::selection {
+  color: white;
+  background: #2081c6;
+}
+
+::-moz-selection {
+  color: white;
+  background: #2081c6;
 }

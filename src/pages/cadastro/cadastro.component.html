@@ -1,0 +1,143 @@
+<form [formGroup]="cadastroForm" #formDir="ngForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="idUsuario" />
+  <input type="hidden" formControlName="idTelefone" />
+  <input type="hidden" formControlName="idEndereco" />
+  <h1>Crie uma nova conta para armazenar suas Contas!</h1>
+
+  <div class="main-container">
+    <!-- DADOS PESSOAIS -->
+    <div class="form-container">
+      <h2>Dados pessoais</h2>
+      <div class="form-item">
+        <label for="nomeUsuario">*Seu nome:</label>
+        <input
+          type="text"
+          placeholder="Coloque o seu nome completo"
+          formControlName="nomeUsuario"
+        />
+        <div *ngIf="nome.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira o seu nome</p>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <label for="cpfUsuario">*CPF:</label>
+        <input
+          type="text"
+          placeholder="Ex.: 12345678900"
+          formControlName="cpfUsuario"
+        />
+        <div *ngIf="cpf.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="cpf.errors?.['required']">Insira o seu CPF</p>
+          <p *ngIf="cpf.errors?.['pattern']">Digite apenas números</p>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <label for="emailUsuario">*E-mail:</label>
+        <input
+          type="text"
+          placeholder="Ex.: usuario@gmail.com"
+          formControlName="emailUsuario"
+        />
+        <div *ngIf="email.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira o seu e-mail</p>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <label for="senhaUsuario">*Senha:</label>
+        <input
+          type="password"
+          placeholder="Coloque a senha da sua conta"
+          formControlName="senhaUsuario"
+        />
+        <div *ngIf="senha.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="senha.errors?.['required']">Insira a sua senha</p>
+          <p *ngIf="senha.errors?.['maxLength']">
+            Sua senha deve conter, no mínimo, 8 caracteres
+          </p>
+        </div>
+      </div>
+
+      <!-- NÚMERO DE TELEFONE -->
+      <div class="form-item">
+        <label for="numeroTelefone">*Número de telefone:</label>
+        <input
+          type="text"
+          placeholder="Insira com DDD"
+          formControlName="numeroTelefone"
+        />
+        <div *ngIf="numero.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="numero.errors?.['required']">
+            Insira o seu número de telefone
+          </p>
+          <p *ngIf="numero.errors?.['pattern']">Digite apenas números</p>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <label for="descricaoTelefone">Descrição do número de telefone:</label>
+        <input
+          type="text"
+          placeholder="De quem é este número? É comercial?"
+          formControlName="descricaoTelefone"
+        />
+      </div>
+    </div>
+
+    <!-- ENDEREÇO -->
+    <div class="form-container">
+      <h2>Endereço</h2>
+      <div class="form-item">
+        <label for="rua">*Rua:</label>
+        <input type="text" formControlName="rua" />
+        <div *ngIf="rua.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira a rua da sua casa</p>
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="numeroCasa">*Número da casa:</label>
+        <input type="number" formControlName="numeroCasa" />
+        <div
+          *ngIf="numeroCasa.invalid && formDir.submitted"
+          class="erro-validacao"
+        >
+          <p>Insira o número da sua casa</p>
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="bairro">*Bairro:</label>
+        <input type="text" formControlName="bairro" />
+        <div *ngIf="bairro.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira o bairro da sua casa</p>
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="cidade">*Cidade:</label>
+        <input type="text" formControlName="cidade" />
+        <div *ngIf="cidade.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira a sua cidade</p>
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="estado">*Estado:</label>
+        <input type="text" formControlName="estado" />
+        <div *ngIf="estado.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira o seu estado</p>
+        </div>
+      </div>
+      <div class="form-item">
+        <label for="cep">*CEP:</label>
+        <input type="text" formControlName="cep" />
+        <div *ngIf="cep.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="cep.errors?.['required']">Insira o seu CEP</p>
+          <p *ngIf="cep.errors?.['pattern']">Digite apenas números</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submit-container">
+    <input type="submit" class="button submit" value="Cadastrar" />
+  </div>
+</form>
