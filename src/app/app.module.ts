@@ -11,8 +11,8 @@ import { FooterComponent } from 'src/components/footer/footer.component';
 import { FormContaComponent } from 'src/components/form-conta/form-conta.component';
 import { NovaContaComponent } from 'src/pages/nova-conta/nova-conta.component';
 import { EditarContaComponent } from 'src/pages/editar-conta/editar-conta.component';
-import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-conta.component';
 import { CadastroComponent } from 'src/pages/cadastro/cadastro.component';
+import { LoginComponent } from 'src/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { CadastroComponent } from 'src/pages/cadastro/cadastro.component';
     FormContaComponent,
     NovaContaComponent,
     EditarContaComponent,
-    VisualizarContaComponent,
     CadastroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

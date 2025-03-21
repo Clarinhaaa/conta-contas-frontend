@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EnderecoInt } from 'src/interfaces/EnderecoInt';
 import { TelefoneInt } from 'src/interfaces/TelefoneInt';
 import { UsuarioInt } from 'src/interfaces/UsuarioInt';
@@ -27,7 +28,8 @@ export class CadastroComponent {
     private telService: TelefoneService,
     private endService: EnderecoService,
     private usuService: UsuarioService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.cadastroForm = this.formBuilder.group({
       idUsuario: new FormControl(null, []),
@@ -63,8 +65,10 @@ export class CadastroComponent {
   }
 
   onSubmit() {
-    //TODO: Cadastrar o telefone e endereço antes de usuário, para pegar o id dos dois e botar lá
-    if (this.cadastroForm.invalid) return;
+    if (this.cadastroForm.invalid) {
+      this.cadastroForm.reset();
+      return;
+    }
 
     const form = this.cadastroForm.value;
 
@@ -72,33 +76,40 @@ export class CadastroComponent {
       numeroTelefone: form.numeroTelefone,
       descricaoTelefone: form.descricaoTelefone,
     };
-    this.telService
-      .save(tel)
-      .subscribe((data) => (this.idTel = data.idTelefone));
 
-    const end: EnderecoInt = {
-      numeroCasa: form.numeroCasa,
-      rua: form.rua,
-      bairro: form.bairro,
-      cidade: form.cidade,
-      estado: form.estado,
-      cep: form.cep,
-    };
-    this.endService
-      .save(end)
-      .subscribe((data) => (this.idEnd = data.idEndereco));
+    this.telService.save(tel).subscribe((data) => {
+      this.idTel = data.idTelefone;
 
-    const usu: UsuarioInt = {
-      nomeUsuario: form.nomeUsuario,
-      cpfUsuario: form.cpfUsuario,
-      emailUsuario: form.emailUsuario,
-      senhaUsuario: form.senhaUsuario,
-      idTelefone: this.idTel,
-      idEndereco: this.idEnd,
-    };
-    this.usuService.save(usu).subscribe({
-      next: () => alert('Usuário cadastrado com sucesso!'),
-      error: () => alert('Erro ao cadastrar usuário.'),
+      const end: EnderecoInt = {
+        numeroCasa: form.numeroCasa,
+        rua: form.rua,
+        bairro: form.bairro,
+        cidade: form.cidade,
+        estado: form.estado,
+        cep: form.cep,
+      };
+      this.endService.save(end).subscribe((data) => {
+        this.idEnd = data.idEndereco;
+
+        const usu: UsuarioInt = {
+          nomeUsuario: form.nomeUsuario,
+          cpfUsuario: form.cpfUsuario,
+          emailUsuario: form.emailUsuario,
+          senhaUsuario: form.senhaUsuario,
+          idTelefone: this.idTel,
+          idEndereco: this.idEnd,
+        };
+        this.usuService.save(usu).subscribe({
+          next: () => {
+            alert('Usuário cadastrado com sucesso!');
+            this.router.navigate(['/home']);
+          },
+          error: () => {
+            alert('Erro ao cadastrar usuário.');
+            this.cadastroForm.reset();
+          },
+        });
+      });
     });
   }
 

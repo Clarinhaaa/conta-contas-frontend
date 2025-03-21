@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm" #formDir="ngForm" (ngSubmit)="onSubmit()">
+  <h1>Bem-vindo(a) de volta!</h1>
+
+  <div class="main-container">
+    <div class="form-container">
+      <div class="form-item">
+        <label for="emailLogin">E-mail:</label>
+        <input type="text" formControlName="emailLogin" />
+        <div *ngIf="email?.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira o seu e-mail</p>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <label for="senhaLogin">Senha:</label>
+        <input type="text" formControlName="senhaLogin" />
+        <div *ngIf="senha?.invalid && formDir.submitted" class="erro-validacao">
+          <p>Insira a sua senha</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="submit-container">
+    <input type="submit" class="button submit" value="Entrar" />
+    <a routerLink="/cadastro">Não tem uma conta? Cadastre-se!</a>
+  </div>
+</form>
