@@ -1,0 +1,22 @@
+<div class="main-container">
+    <h1>Suas parcelas:</h1>
+    <a routerLink="/home" class="voltar-link">< Voltar</a>
+    <div class="parcela-container">
+      <div class="parcela" *ngFor="let par of listaParcelas">
+        <h3 class="parcela-titulo">Parcela N°{{ par.numeroParcela }}</h3>
+        <p>Valor: R${{ par.valorParcela }}</p>
+        <p>Data de vencimento: {{ par.dataVencimentoParcela }}</p>
+        <p>Status: {{ par.statusParcela }}</p>
+  
+        <div class="button-container">
+          <button class="button green">
+            <p>Pagar</p>
+          </button>
+          <button class="button red" (click)="removeHandler(par.idParcela!)">
+            <p>Excluir</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

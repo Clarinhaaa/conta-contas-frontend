@@ -1,0 +1,47 @@
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-container {
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+  
+  .voltar-link {
+    margin-bottom: 15px;
+    color: #aaa;
+    text-decoration: none;
+  }
+  
+  .erro-validacao {
+    color: #fa2c2c;
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  
+  .submit {
+    border: none;
+    margin-top: 15px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+  }
+  

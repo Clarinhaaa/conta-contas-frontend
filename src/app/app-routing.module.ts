@@ -5,6 +5,8 @@ import { EditarContaComponent } from 'src/pages/editar-conta/editar-conta.compon
 import { HomeComponent } from 'src/pages/home/home.component';
 import { LoginComponent } from 'src/pages/login/login.component';
 import { NovaContaComponent } from 'src/pages/nova-conta/nova-conta.component';
+import { ParcelarComponent } from 'src/pages/parcelar/parcelar.component';
+import { VerParcelasComponent } from 'src/pages/ver-parcelas/ver-parcelas.component';
 import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-conta.component';
 import { AuthGuard } from 'src/service/login/auth-guard.service';
 
@@ -19,6 +21,8 @@ const routes: Routes = [
   },
   { path: 'editarConta/:id', component: EditarContaComponent },
   { path: 'detalhesConta/:id', component: VisualizarContaComponent },
+  { path: 'parcelar/:id', component: ParcelarComponent },
+  { path: 'detalhesParcela/:id', component: VerParcelasComponent },
 ];
 
 @NgModule({

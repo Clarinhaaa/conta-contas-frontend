@@ -14,6 +14,8 @@ import { EditarContaComponent } from 'src/pages/editar-conta/editar-conta.compon
 import { CadastroComponent } from 'src/pages/cadastro/cadastro.component';
 import { LoginComponent } from 'src/pages/login/login.component';
 import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-conta.component';
+import { ParcelarComponent } from 'src/pages/parcelar/parcelar.component';
+import { VerParcelasComponent } from 'src/pages/ver-parcelas/ver-parcelas.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-
     CadastroComponent,
     LoginComponent,
     VisualizarContaComponent,
+    ParcelarComponent,
+    VerParcelasComponent,
   ],
   imports: [
     BrowserModule,

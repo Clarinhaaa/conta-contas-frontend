@@ -13,8 +13,11 @@
       <a routerLink="/detalhesConta/{{ con.idConta }}">Mais detalhes...</a>
 
       <div class="button-container">
-        <a class="button" routerLink="#">
+        <a class="button" routerLink="/parcelar/{{con.idConta}}">
           <p>Parcelar</p>
+        </a>
+        <a class="button" routerLink="/detalhesParcela/{{con.idConta}}">
+          <p>Ver parcelas</p>
         </a>
         <button class="button green" (click)="pagarHandler(con.idConta!)" [disabled]="con.statusConta">
           <p>Pagar</p>

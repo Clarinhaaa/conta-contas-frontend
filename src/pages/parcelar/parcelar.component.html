@@ -1,0 +1,24 @@
+<h1>Parcelar conta:</h1>
+<form [formGroup]="parcelaForm" #formDir="ngForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="idParcela" />
+  <input type="hidden" formControlName="idConta" />
+
+  <div class="form-container">
+    <a routerLink="/home" class="voltar-link">< Voltar</a>
+
+    <div class="form-item">
+      <label for="qtdParcelas"
+        >Deseja dividir a conta em quantas parcelas?</label
+      >
+      <input type="number" formControlName="qtdParcelas" />
+      <div
+        *ngIf="qtdParcelas?.invalid && formDir.submitted"
+        class="erro-validacao"
+      >
+        <p>Insira o número de parcelas</p>
+      </div>
+    </div>
+
+    <input type="submit" class="button submit green" value="Parcelar" />
+  </div>
+</form>
