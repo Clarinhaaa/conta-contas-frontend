@@ -28,6 +28,10 @@ export class ContaService {
     return this.http.post<ContaInt>(`${this.rota}save`, conta);
   }
 
+  pagar(id: number): Observable<ContaInt> {
+    return this.http.get<ContaInt>(`${this.rota}pagar/${id}`);
+  }
+
   update(conta: ContaInt, id: number): Observable<ContaInt> {
     return this.http.put<ContaInt>(`${this.rota}${id}`, conta);
   }

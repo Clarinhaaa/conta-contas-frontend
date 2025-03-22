@@ -3,6 +3,8 @@
   <input type="hidden" formControlName="idUsuario" />
 
   <div class="form-container">
+    <a routerLink="/home" class="voltar-link">< Voltar</a>
+
     <div class="form-item">
       <label for="descricaoConta">Descrição:</label>
       <input
@@ -46,6 +48,15 @@
       </div>
     </div>
 
+    <div class="form-item" *ngIf="isEditar">
+      <label for="dataPagamentoConta">Data de pagamento:</label>
+      <input
+        type="date"
+        max="2050-12-31"
+        formControlName="dataPagamentoConta"
+      />
+    </div>
+
     <div class="form-item">
       <label for="tipoConta">Tipo da conta:</label>
       <input
@@ -61,16 +72,21 @@
     <div class="form-item">
       <label for="idCategoria">Categoria:</label>
       <select formControlName="idCategoria">
-        <option>Energia</option>
-        <option>Água</option>
+        <option
+          *ngFor="let cat of listaCategorias"
+          [value]="cat.idCategoria"
+          [selected]="isVisualizar"
+        >
+          {{ cat.descricaoCategoria }}
+        </option>
       </select>
     </div>
 
     <input
-      *ngIf="!visualizar"
       type="submit"
-      class="button submit {{ tipoForm === 'cadastrar' ? 'green' : 'yellow' }}"
-      value="{{ tipoForm === 'cadastrar' ? 'Salvar' : 'Editar' }}"
+      class="button submit {{ !isEditar ? 'green' : 'yellow' }}"
+      value="{{ !isEditar ? 'Salvar' : 'Editar' }}"
+      *ngIf="!isVisualizar"
     />
   </div>
 </form>

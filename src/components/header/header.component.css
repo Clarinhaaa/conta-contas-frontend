@@ -15,9 +15,16 @@
 .info {
     display: flex;
     flex-direction: row;
+    align-items: center;
     a {
         margin-right: 30px;
     }
+}
+
+.button {
+    background-color: black;
+    color: #29c8db;
+    margin-top: 0;
 }
 
 a {

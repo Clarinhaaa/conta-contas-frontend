@@ -13,6 +13,7 @@ import { NovaContaComponent } from 'src/pages/nova-conta/nova-conta.component';
 import { EditarContaComponent } from 'src/pages/editar-conta/editar-conta.component';
 import { CadastroComponent } from 'src/pages/cadastro/cadastro.component';
 import { LoginComponent } from 'src/pages/login/login.component';
+import { VisualizarContaComponent } from 'src/pages/visualizar-conta/visualizar-conta.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LoginComponent } from 'src/pages/login/login.component';
     EditarContaComponent,
     CadastroComponent,
     LoginComponent,
+    VisualizarContaComponent,
   ],
   imports: [
     BrowserModule,

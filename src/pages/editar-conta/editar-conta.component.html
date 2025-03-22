@@ -1,2 +1,9 @@
-<h1>Editar conta</h1>
-<app-form-conta [tipoForm]="'editar'" [visualizar]="false" />
+<div *ngIf="conta">
+  <h1>Editar conta</h1>
+  <app-form-conta
+    [isEditar]="true"
+    [isVisualizar]="false"
+    [contaEditar]="conta"
+    (onSubmit)="submit($event)"
+  />
+</div>

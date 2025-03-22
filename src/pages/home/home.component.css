@@ -48,6 +48,11 @@ h2 {
   color: #2081c6;
 }
 
+.green:disabled {
+  background-color: #aaa;
+  cursor: default;
+}
+
 span {
   font-weight: bold;
 }

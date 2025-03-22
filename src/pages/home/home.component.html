@@ -1,25 +1,28 @@
 <div class="main-container">
   <h1>Suas contas:</h1>
   <div class="conta-container">
-    <div class="conta">
-      <h3 class="conta-titulo">Descrição</h3>
-      <p>Valor: 300</p>
-      <p>Data de vencimento: 18/03/2025</p>
-      <p>Status: a pagar</p>
-      <p>Parcelas: 3</p>
-      <a routerLink="/detalhesConta">Detalhes...</a>
+    <div class="conta" *ngFor="let con of listaContas">
+      <h3 class="conta-titulo">{{ con.descricaoConta }}</h3>
+      <p>Valor: R${{ con.valorConta }}</p>
+      <p>Data de vencimento: {{ con.dataVencimentoConta }}</p>
+      <p>
+        Data de pagamento:
+        {{ con.dataPagamentoConta ? con.dataPagamentoConta : "Conta não paga" }}
+      </p>
+      <p>Tipo: {{ con.tipoConta }}</p>
+      <a routerLink="/detalhesConta/{{ con.idConta }}">Mais detalhes...</a>
 
       <div class="button-container">
         <a class="button" routerLink="#">
           <p>Parcelar</p>
         </a>
-        <button class="button green">
+        <button class="button green" (click)="pagarHandler(con.idConta!)" [disabled]="con.statusConta">
           <p>Pagar</p>
         </button>
-        <a class="button yellow" routerLink="/editarConta">
+        <a class="button yellow" routerLink="/editarConta/{{ con.idConta }}">
           <p>Editar</p>
         </a>
-        <button class="button red">
+        <button class="button red" (click)="removeHandler(con.idConta!)">
           <p>Excluir</p>
         </button>
       </div>

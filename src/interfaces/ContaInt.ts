@@ -3,7 +3,7 @@ export interface ContaInt {
     descricaoConta: string,
     valorConta: number,
     dataVencimentoConta: Date,
-    dataPagamentoContaa: Date,
+    dataPagamentoConta: Date,
     tipoConta: string,
     statusConta: boolean,
     idUsuario?: number,

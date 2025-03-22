@@ -36,8 +36,6 @@ export class LoginComponent {
       senha: this.loginForm.get('senhaLogin')?.value,
     };
 
-    console.log(login);
-
     this.authService.login(login).subscribe({
       next: (usuario) => {
         this.authService.salvarUsuario(usuario);

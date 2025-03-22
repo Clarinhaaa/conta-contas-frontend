@@ -11,6 +11,12 @@
   margin-bottom: 25px;
 }
 
+.voltar-link {
+  margin-bottom: 15px;
+  color: #aaa;
+  text-decoration: none;
+}
+
 .erro-validacao {
   color: #fa2c2c;
   font-size: 8px;
