@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
+## Descrição
+
+Este é o front-end do projeto final das disciplinas de Estrutura de Dados, Banco de Dados e Linguagem de Programação II do curso Técnico em Informática Integrado do IFBA, que se tratava de um site de gerenciamento de contas para pagar e já pagas do usuário.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
